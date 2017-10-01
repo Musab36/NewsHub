@@ -3,16 +3,33 @@ package com.salajim.musab.newshub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
+import butterknife.Bind;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
+
 public class MainActivity extends AppCompatActivity {
+    public static final String TAG = MainActivity.class.getSimpleName();
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    private NewsListAdapter mAdapter;
+
+    public ArrayList<News> mNewses = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getNews("news");
     }
 
     // Menus inflated here
@@ -21,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
         inflater.inflate(R.menu.menu_share, menu);
-        inflater.inflate(R.menu.menu_search, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -44,5 +60,34 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    // Callback method for desplaying response data
+    public void getNews(String newses) {
+        final NewsService newsService = new NewsService();
+        NewsService.findNews(newses, new Callback() {
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                mNewses = newsService.processResults(response);
+
+                MainActivity.this.runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        mAdapter = new NewsListAdapter(getApplicationContext(), mNewses);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
+                    }
+                });
+            }
+        });
     }
 }
