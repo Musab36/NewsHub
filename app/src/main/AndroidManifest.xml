@@ -24,7 +24,6 @@
                 android:value="com.salajim.musab.newshub.ui.MainActivity" />
         </activity>
         <activity android:name=".ui.NewsDetailActivity" />
-        <activity android:name=".ui.NewsListActivity"></activity>
     </application>
 
 </manifest>

@@ -30,4 +30,10 @@ public class NewsPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return mNewses.size();
     }
+
+    //Updates the title that appears in the scrolling tabs at the top of the screen
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return mNewses.get(position).getTitle();
+    }
 }

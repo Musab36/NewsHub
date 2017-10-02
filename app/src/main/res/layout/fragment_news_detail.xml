@@ -10,7 +10,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="280dp"
             android:id="@+id/newsImageView"
             android:src="@drawable/falcos"
@@ -26,8 +26,20 @@
                 android:id="@+id/newsDescriptionTextView"
                 android:text="News Description"
                 android:paddingTop="15dp"
-                android:textSize="10sp"
+                android:textSize="20sp"
                 android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Read More.."
+                android:layout_below="@+id/newsDescriptionTextView"
+                android:paddingTop="20dp"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/readMoreTextView"
+                android:drawableLeft="@drawable/ic_exit_to_app_black_24dp"
+                android:drawablePadding="5dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,22 +47,12 @@
                 android:id="@+id/publishedAtTextView"
                 android:text="Published at 2:00pm"
                 android:layout_alignParentRight="true"
-                android:paddingTop="30dp"
+                android:paddingTop="20dp"
                 android:textColor="@color/colorAccent"
+                android:layout_below="@+id/newsDescriptionTextView"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Read More.."
-                android:layout_below="@+id/publishedAtTextView"
-                android:paddingTop="20dp"
-                android:textColor="@color/colorPrimary"
-                android:id="@+id/readMoreTextView"
-                android:drawableLeft="@drawable/ic_exit_to_app_black_24dp"
-                android:drawablePadding="5dp"
-                android:textStyle="bold" />
         </RelativeLayout>
 
     </LinearLayout>

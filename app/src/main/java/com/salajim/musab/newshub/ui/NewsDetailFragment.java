@@ -63,7 +63,7 @@ public class NewsDetailFragment extends Fragment implements View.OnClickListener
                 .into(mNewsImageView);
 
         mNewsDescriptionTextView.setText(mNews.getDescription());
-        mPublishedAtTextView.setText(mNews.getPublishedAt());
+        mPublishedAtTextView.setText("Published At: " + mNews.getPublishedAt());
 
         mReadMoreTextView.setOnClickListener(this);
 
