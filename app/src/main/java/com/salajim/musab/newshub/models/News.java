@@ -4,12 +4,12 @@ import org.parceler.Parcel;
 
 @Parcel
 public class News {
-    private String author;
-    private String title;
-    private String description;
-    private String url;
-    private String urlToImage;
-    private String publishedAt;
+    String author;
+    String title;
+    String description;
+    String url;
+    String urlToImage;
+    String publishedAt;
 
     public News() {}
 
