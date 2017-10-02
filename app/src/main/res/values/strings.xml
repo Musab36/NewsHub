@@ -1,6 +1,26 @@
 <resources>
     <string name="app_name">News Hub</string>
 
+    <string name="navigation_drawer_open">Open navigation drwer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="openDrawer">Open drawer</string>
+    <string name="closeDrawer">Close drawer</string>
+
+    <!-- Navigation drawer menu labels-->
+    <string name="nav_latest_news">Latest News</string>
+    <string name="nav_general_news">General news</string>
+    <string name="nav_tech_news">Technology News</string>
+    <string name="nav_business_news">Business News</string>
+
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_item_activity_titles">
+        <item>Latest News</item>
+        <item>General News</item>
+        <item>Technology News</item>
+        <item>Business News</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

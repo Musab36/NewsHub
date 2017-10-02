@@ -50,7 +50,7 @@
                 android:paddingTop="20dp"
                 android:textColor="@color/colorAccent"
                 android:layout_below="@+id/newsDescriptionTextView"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
         </RelativeLayout>
