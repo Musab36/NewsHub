@@ -4,10 +4,55 @@
     android:layout_height="match_parent"
     tools:context="com.salajim.musab.newshub.ui.NewsDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="280dp"
+            android:id="@+id/newsImageView"
+            android:src="@drawable/falcos"
+            android:scaleType="centerCrop" />
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/newsDescriptionTextView"
+                android:text="News Description"
+                android:paddingTop="15dp"
+                android:textSize="10sp"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/publishedAtTextView"
+                android:text="Published at 2:00pm"
+                android:layout_alignParentRight="true"
+                android:paddingTop="30dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Read More.."
+                android:layout_below="@+id/publishedAtTextView"
+                android:paddingTop="20dp"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/readMoreTextView"
+                android:drawableLeft="@drawable/ic_exit_to_app_black_24dp"
+                android:drawablePadding="5dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </FrameLayout>
