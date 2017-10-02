@@ -1,4 +1,4 @@
-package com.salajim.musab.newshub;
+package com.salajim.musab.newshub.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,10 +9,16 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.salajim.musab.newshub.R;
+import com.salajim.musab.newshub.adapters.NewsListAdapter;
+import com.salajim.musab.newshub.models.News;
+import com.salajim.musab.newshub.services.NewsService;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -28,8 +34,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         getNews("news");
+
+
     }
 
     // Menus inflated here

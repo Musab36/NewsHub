@@ -1,13 +1,15 @@
-package com.salajim.musab.newshub;
+package com.salajim.musab.newshub.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class NewsDetailActivity extends AppCompatActivity {
+import com.salajim.musab.newshub.R;
+
+public class NewsListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news_detail);
+        setContentView(R.layout.activity_news_list);
     }
 }

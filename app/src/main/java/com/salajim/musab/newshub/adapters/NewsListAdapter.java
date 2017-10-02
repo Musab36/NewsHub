@@ -1,4 +1,4 @@
-package com.salajim.musab.newshub;
+package com.salajim.musab.newshub.adapters;
 
 
 import android.content.Context;
@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.salajim.musab.newshub.models.News;
+import com.salajim.musab.newshub.ui.NewsDetailActivity;
+import com.salajim.musab.newshub.R;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -65,6 +68,16 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsVi
             mContext = itemView.getContext();
             itemView.setOnClickListener(this);
         }
+        public void bindNews(News news) {
+            Picasso.with(mContext)
+                    .load(news.getUrlToImage())
+                    .resize(MAX_WIDTH, MAX_HEIGHT)
+                    .centerCrop()
+                    .into(mNewsImageView);
+
+            mNewsTitleTextView.setText(news.getTitle());
+            mAuthorTextView.setText("By: " + news.getAuthor());
+        }
 
         @Override
         public void onClick(View v) {
@@ -75,15 +88,5 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsVi
             mContext.startActivity(intent);
         }
 
-        public void bindNews(News news) {
-            Picasso.with(mContext)
-                    .load(news.getUrlToImage())
-                    .resize(MAX_WIDTH, MAX_HEIGHT)
-                    .centerCrop()
-                    .into(mNewsImageView);
-
-            mNewsTitleTextView.setText(news.getTitle());
-            mAuthorTextView.setText(news.getAuthor());
-        }
     }
 }

@@ -1,5 +1,8 @@
-package com.salajim.musab.newshub;
+package com.salajim.musab.newshub.services;
 
+
+import com.salajim.musab.newshub.Constants;
+import com.salajim.musab.newshub.models.News;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,8 +26,6 @@ public class NewsService {
         OkHttpClient client = new OkHttpClient.Builder().build();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.BASE_URL).newBuilder();
-        urlBuilder.addQueryParameter(Constants.QUERY_PARAMETER, articles);
-        urlBuilder.addQueryParameter(Constants.QUERY_PARAMETER_FORMAT, "json");
         urlBuilder.addQueryParameter(Constants.QUERY_APIKEY_HOLDER, Constants.ApiKey);
 
         String url = urlBuilder.build().toString();
