@@ -7,7 +7,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@android:color/black">
 
         <ImageView
             android:layout_width="match_parent"
@@ -18,7 +19,8 @@
         
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -27,17 +29,17 @@
                 android:text="News Description"
                 android:paddingTop="15dp"
                 android:textSize="20sp"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Read More.."
+                android:text="Read More..."
                 android:layout_below="@+id/newsDescriptionTextView"
                 android:paddingTop="20dp"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@android:color/white"
                 android:id="@+id/readMoreTextView"
-                android:drawableLeft="@drawable/ic_exit_to_app_black_24dp"
+                android:drawableLeft="@drawable/ic_exit_to_app_white_24dp"
                 android:drawablePadding="5dp"
                 android:textStyle="bold" />
 
@@ -48,9 +50,9 @@
                 android:text="Published at 2:00pm"
                 android:layout_alignParentRight="true"
                 android:paddingTop="20dp"
-                android:textColor="@color/colorAccent"
+                android:textColor="@android:color/white"
                 android:layout_below="@+id/newsDescriptionTextView"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
         </RelativeLayout>
