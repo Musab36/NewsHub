@@ -12,17 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.salajim.musab.newshub.ui.NewsCategoryActivity"/>
+        </activity>
+        <activity android:name=".ui.NewsDetailActivity" />
+        <activity android:name=".ui.GeneralNewsActivity" />
+        <activity android:name=".ui.TechnologyNewsActivity" />
+        <activity android:name=".ui.BusinessNewsActivity" />
+        <activity android:name=".ui.NewsCategoryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.NewsDetailActivity" />
-        <activity android:name=".ui.GeneralNewsActivity" />
-        <activity android:name=".ui.TechnologyNewsActivity" />
-        <activity android:name=".ui.BusinessNewsActivity" />
-        <activity android:name=".ui.NewsCategoryActivity"></activity>
     </application>
 
 </manifest>
