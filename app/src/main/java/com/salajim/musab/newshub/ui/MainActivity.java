@@ -63,10 +63,17 @@ public class MainActivity extends AppCompatActivity {
             startActivity(shareIntent);
             return true;
         }
-        if(id == R.id.action_about) {
-            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+        if(id == R.id.general_news) {
+            Intent intent = new Intent(MainActivity.this, GeneralNewsActivity.class);
             startActivity(intent);
-            return true;
+        }
+        if(id == R.id.tech_news) {
+            Intent intent = new Intent(MainActivity.this, TechnologyNewsActivity.class);
+            startActivity(intent);
+        }
+        if(id == R.id.business_news) {
+            Intent intent = new Intent(MainActivity.this, BusinessNewsActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

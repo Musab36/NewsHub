@@ -2,8 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_about"
-        android:title="About"
-        android:visible="true"
+        android:id="@+id/general_news"
+        android:title="General News"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/tech_news"
+        android:title="Technology News"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/business_news"
+        android:title="Busines News"
         app:showAsAction="never"/>
 </menu>

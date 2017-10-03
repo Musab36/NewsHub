@@ -18,12 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.AboutActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.salajim.musab.newshub.ui.MainActivity" />
-        </activity>
         <activity android:name=".ui.NewsDetailActivity" />
+        <activity android:name=".ui.GeneralNewsActivity" />
+        <activity android:name=".ui.TechnologyNewsActivity" />
+        <activity android:name=".ui.BusinessNewsActivity" />
+        <activity android:name=".ui.NewsCategoryActivity"></activity>
     </application>
 
 </manifest>
