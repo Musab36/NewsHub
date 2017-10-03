@@ -16,6 +16,7 @@ public class NewsCategoryActivity extends AppCompatActivity implements View.OnCl
     @Bind(R.id.generalNewsBtn) Button mGeneralNewsBtn;
     @Bind(R.id.techNewsBtn) Button mTechNews;
     @Bind(R.id.businessNewsBtn) Button mBusinessNewsBtn;
+    @Bind(R.id.entertainmentNewsBtn) Button mEnterTainmentNewsBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class NewsCategoryActivity extends AppCompatActivity implements View.OnCl
         mGeneralNewsBtn.setOnClickListener(this);
         mTechNews.setOnClickListener(this);
         mBusinessNewsBtn.setOnClickListener(this);
+        mEnterTainmentNewsBtn.setOnClickListener(this);
     }
 
     @Override
@@ -45,6 +47,10 @@ public class NewsCategoryActivity extends AppCompatActivity implements View.OnCl
         }
         if(v == mBusinessNewsBtn) {
             Intent intent = new Intent(NewsCategoryActivity.this, BusinessNewsActivity.class);
+            startActivity(intent);
+        }
+        if(v == mEnterTainmentNewsBtn) {
+            Intent intent = new Intent(NewsCategoryActivity.this, EntertainmentNewsActivity.class);
             startActivity(intent);
         }
     }
