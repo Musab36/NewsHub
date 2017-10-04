@@ -18,18 +18,16 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class TechNewsService {
+public class BusinessService {
 
-    public static void findTechNews(String articles, Callback callback) {
+    public static void findBusinessNews(String articles, Callback callback) {
 
-        //SignPost
         OkHttpClient client = new OkHttpClient.Builder().build();
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.TECH_BASE_URL).newBuilder();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.BUSINESS_BASE_URL).newBuilder();
         urlBuilder.addQueryParameter(Constants.QUERY_APIKEY_HOLDER, Constants.ApiKey);
 
-        //Turning the finished url into a string
         String url = urlBuilder.build().toString();
-        //Creates a request with the stringfied url
+
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -46,7 +44,7 @@ public class TechNewsService {
             if(response.isSuccessful()) {
                 JSONObject newsesJSON = new JSONObject(jsonData);
                 JSONArray articlesJSON = newsesJSON.getJSONArray("articles");
-                for(int i = 0; i < articlesJSON.length(); i++) {
+                for(int i = 0; i < articlesJSON.length(); i ++) {
                     JSONObject newsJSON = articlesJSON.getJSONObject(i);
                     String author = newsJSON.getString("author");
                     String title = newsJSON.getString("title");
@@ -55,7 +53,7 @@ public class TechNewsService {
                     String urlToImage = newsJSON.getString("urlToImage");
                     String publishedAt = newsJSON.getString("publishedAt");
 
-                    News news = new News(title, author, description, url, urlToImage, publishedAt);
+                    News news = new News(author, title, description, url, urlToImage, publishedAt);
                     newses.add(news);
                 }
             }

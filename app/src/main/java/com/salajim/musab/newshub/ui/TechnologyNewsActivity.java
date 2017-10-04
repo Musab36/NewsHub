@@ -1,5 +1,6 @@
 package com.salajim.musab.newshub.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -33,7 +34,10 @@ public class TechnologyNewsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_technology_news);
         ButterKnife.bind(this);
 
-        getTechNews("news");
+        Intent intent = getIntent();
+        String news = intent.getStringExtra("news");
+
+        getTechNews(news);
     }
 
     public void getTechNews(String newses) {

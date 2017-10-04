@@ -1,6 +1,5 @@
 package com.salajim.musab.newshub.services;
 
-
 import com.salajim.musab.newshub.Constants;
 import com.salajim.musab.newshub.models.News;
 
@@ -18,18 +17,18 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class TechNewsService {
 
-    public static void findTechNews(String articles, Callback callback) {
+public class EntertainmentService {
 
-        //SignPost
+    public static void findEntertainmentNews(String articles, Callback callback) {
+
         OkHttpClient client = new OkHttpClient.Builder().build();
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.TECH_BASE_URL).newBuilder();
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.ENTERTAINMENT_BASE_URL).newBuilder();
         urlBuilder.addQueryParameter(Constants.QUERY_APIKEY_HOLDER, Constants.ApiKey);
 
-        //Turning the finished url into a string
         String url = urlBuilder.build().toString();
-        //Creates a request with the stringfied url
+
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -55,7 +54,7 @@ public class TechNewsService {
                     String urlToImage = newsJSON.getString("urlToImage");
                     String publishedAt = newsJSON.getString("publishedAt");
 
-                    News news = new News(title, author, description, url, urlToImage, publishedAt);
+                    News news = new News(author, title, description, url, urlToImage, publishedAt);
                     newses.add(news);
                 }
             }
@@ -64,6 +63,7 @@ public class TechNewsService {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
         return newses;
     }
 }
