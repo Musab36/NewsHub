@@ -13,4 +13,8 @@
         android:id="@+id/business_news"
         android:title="Busines News"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/entertainment"
+        android:title="Entertainment News"
+        app:showAsAction="never"/>
 </menu>
