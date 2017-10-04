@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    // Menu actions
+    // Menu actions Listeners
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -77,6 +77,10 @@ public class MainActivity extends AppCompatActivity {
         }
         if(id == R.id.entertainment) {
             Intent intent = new Intent(MainActivity.this, EntertainmentNewsActivity.class);
+            startActivity(intent);
+        }
+        if(id == R.id.nationalGeographicNews) {
+            Intent intent = new Intent(MainActivity.this, NationalGeographicActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

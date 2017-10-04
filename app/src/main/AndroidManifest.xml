@@ -40,7 +40,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.salajim.musab.newshub.ui.NewsCategoryActivity" />
         </activity>
-        <activity android:name=".ui.NationalGeographicActivity"></activity>
+        <activity android:name=".ui.NationalGeographicActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.salajim.musab.newshub.ui.NewsCategoryActivity" />
+        </activity>
     </application>
 
 </manifest>
