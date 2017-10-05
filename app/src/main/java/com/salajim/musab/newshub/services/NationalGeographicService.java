@@ -20,21 +20,28 @@ import okhttp3.Response;
 
 public class NationalGeographicService {
 
+    // The following method build, signs, and sends an OAuth API request using OkHttp and Signpost:
     public static void finNationalGeographicNews(String articles, Callback callback) {
 
+        //Here we create OkHttpClient to send and create requests
         OkHttpClient client = new OkHttpClient.Builder().build();
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.NATIONAL_GEOGRAPHIC_URL).newBuilder();
+        //Building a new URL
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.NATIONAL_GEOGRAPHIC_URL).newBuilder();//Creates a new URL
         urlBuilder.addQueryParameter(Constants.QUERY_APIKEY_HOLDER, Constants.ApiKey);
 
+        //Turns the finished URL into a String
         String url = urlBuilder.build().toString();
+        //Makes a new request with OkHttp using the new URL
         Request request = new Request.Builder()
                 .url(url)
                 .build();
 
+        //We creat a Call object and place request in it
         Call call = client.newCall(request);
-        call.enqueue(callback);
+        call.enqueue(callback);//Then we excute the request
     }
 
+    //This method returns an array of NationalGeographic newsw
     public ArrayList<News> processResults(Response response) {
         ArrayList<News> newses = new ArrayList<>();
 

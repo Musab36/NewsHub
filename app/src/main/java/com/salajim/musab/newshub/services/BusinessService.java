@@ -20,26 +20,34 @@ import okhttp3.Response;
 
 public class BusinessService {
 
+    // The following method build, signs, and sends an OAuth API request using OkHttp and Signpost
     public static void findBusinessNews(String articles, Callback callback) {
 
+        // Here we are creating OKHttpClient to create and send request
         OkHttpClient client = new OkHttpClient.Builder().build();
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.BUSINESS_BASE_URL).newBuilder();
+        // Building the request URL with OKHttp
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.BUSINESS_BASE_URL).newBuilder();//Creating new url
         urlBuilder.addQueryParameter(Constants.QUERY_APIKEY_HOLDER, Constants.ApiKey);
 
+        //Turns the finished url into a string
         String url = urlBuilder.build().toString();
 
+        //Creating new request with OkHttp using the new url
         Request request = new Request.Builder()
                 .url(url)
                 .build();
 
-        Call call = client.newCall(request);
-        call.enqueue(callback);
+        //Excuting the request
+        Call call = client.newCall(request);//Created a Call object and place the request in it
+        call.enqueue(callback);//Then excute the request
     }
 
+    //This method returns an arry of business news
     public ArrayList<News> processResults(Response response) {
         ArrayList<News> newses = new ArrayList<>();
 
         try {
+            // Transforms the API response into a String in order to double-check the response was successful
             String jsonData = response.body().string();
             if(response.isSuccessful()) {
                 JSONObject newsesJSON = new JSONObject(jsonData);

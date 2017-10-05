@@ -20,11 +20,13 @@ import okhttp3.Response;
 
 public class TechNewsService {
 
+    // The following method build, signs, and sends an OAuth API request using OkHttp and Signpost:
     public static void findTechNews(String articles, Callback callback) {
 
         //SignPost
         OkHttpClient client = new OkHttpClient.Builder().build();
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.TECH_BASE_URL).newBuilder();
+        //Building a new URL
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.TECH_BASE_URL).newBuilder();//Creates a new URL
         urlBuilder.addQueryParameter(Constants.QUERY_APIKEY_HOLDER, Constants.ApiKey);
 
         //Turning the finished url into a string
@@ -34,10 +36,12 @@ public class TechNewsService {
                 .url(url)
                 .build();
 
+        //A Call object excuting the request
         Call call = client.newCall(request);
         call.enqueue(callback);
     }
 
+    //This method returns an arry of Tech news
     public ArrayList<News> processResults(Response response) {
         ArrayList<News> newses = new ArrayList<>();
 

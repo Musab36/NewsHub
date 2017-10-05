@@ -20,21 +20,28 @@ import okhttp3.Response;
 
 public class GeneralNewsService {
 
+    // The following method build, signs, and sends an OAuth API request using OkHttp and Signpost:
     public static void findGeneralNews(String articles, Callback callback) {
 
+        //Creating OkHttpClient to create and send request
         OkHttpClient client = new OkHttpClient.Builder().build();
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.GENERAL_BASE_URL).newBuilder();
+        //Building a new URL
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.GENERAL_BASE_URL).newBuilder();//Creates a new URL
         urlBuilder.addQueryParameter(Constants.QUERY_APIKEY_HOLDER, Constants.ApiKey);
 
+        //Turns the finished URL into String
         String url = urlBuilder.build().toString();
+        //Creates a new request with OkHttp using the new URL
         Request request = new Request.Builder()
                 .url(url)
                 .build();
 
+        //Creating a Call object and place our request in it
         Call call = client.newCall(request);
-        call.enqueue(callback);
+        call.enqueue(callback);//Then we excute the request
     }
 
+    //This method returns an array of General news
     public ArrayList<News> processResults(Response response) {
         ArrayList<News> newses = new ArrayList<>();
 

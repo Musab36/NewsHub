@@ -40,23 +40,28 @@ public class EntertainmentNewsActivity extends AppCompatActivity {
         getEntertainmentNews(news);
     }
 
+    //This method retrieves the data that will be displayed
     public void getEntertainmentNews(String newses) {
         final EntertainmentService entertainmentService = new EntertainmentService();
         entertainmentService.findEntertainmentNews(newses, new Callback() {
 
+            //This method runs if the request fails
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
 
+            //This method runs if the request is successful
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 mNewses = entertainmentService.processResults(response);
 
+                //We are switching to the main thread using Runnable() method
                 EntertainmentNewsActivity.this.runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
+                        //We set the adpater and the LayoutManager with the RecyclerView
                         mAdapter = new NewsListAdapter(getApplicationContext(), mNewses);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(EntertainmentNewsActivity.this);

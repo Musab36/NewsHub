@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class NewsPagerAdapter extends FragmentPagerAdapter {
     private ArrayList<News> mNewses;
 
-    //A constructor where we set the required FragmentManager and array list of news we will be swiping through.
+    //A constructor where we set the required FragmentManager and array list of news
     public NewsPagerAdapter(FragmentManager fm, ArrayList<News> newses) {
         super(fm);
         mNewses = newses;

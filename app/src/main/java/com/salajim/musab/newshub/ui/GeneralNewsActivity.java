@@ -40,24 +40,29 @@ public class GeneralNewsActivity extends AppCompatActivity {
         getGeneralNews(news);
     }
 
+    //This method retrieves the data that will be displayed to the user
     public void getGeneralNews(String newses) {
         final GeneralNewsService generalNewsService = new GeneralNewsService();
         generalNewsService.findGeneralNews(newses, new Callback() {
 
+            //This method runs if the request fails
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
 
+            //This method runs if the request is successful
             @Override
             public void onResponse(Call call, Response response) throws IOException {
 
                 mNewses = generalNewsService.processResults(response);
 
+                //We are switching to the main thread using Runnable() method
                 GeneralNewsActivity.this.runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
+                        //We then set the adapter and the LayoutManager with the RecyclerView
                         mAdapter = new NewsListAdapter(getApplicationContext(), mNewses);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(GeneralNewsActivity.this);

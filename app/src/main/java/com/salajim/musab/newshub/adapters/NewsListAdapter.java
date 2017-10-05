@@ -76,7 +76,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsVi
                     .into(mNewsImageView);
 
             mNewsTitleTextView.setText(news.getTitle());
-            mAuthorTextView.setText("By: " + news.getAuthor());
+            mAuthorTextView.setText(news.getAuthor());
         }
 
         @Override

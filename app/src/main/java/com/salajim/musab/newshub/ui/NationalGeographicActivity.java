@@ -40,24 +40,29 @@ public class NationalGeographicActivity extends AppCompatActivity {
         getNationalGeographicNews(news);
     }
 
+    //This method retrieves the data from the news API and displays it
     public void getNationalGeographicNews(String newses) {
         final NationalGeographicService nationalGeographicService = new NationalGeographicService();
         nationalGeographicService.finNationalGeographicNews(newses, new Callback() {
 
+            //This method runs if the request fails
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
 
+            //This method runs if the request fails
             @Override
             public void onResponse(Call call, Response response) throws IOException {
 
                 mNewses = nationalGeographicService.processResults(response);
 
+                //We are switching to the main thread
                 NationalGeographicActivity.this.runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
+                        //We then set the adapter and the LayoutManager required by the RecyclerView
                         mAdapter = new NewsListAdapter(getApplicationContext(), mNewses);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(NationalGeographicActivity.this);

@@ -20,23 +20,30 @@ import okhttp3.Response;
 
 public class EntertainmentService {
 
+    // The following method build, signs, and sends an OAuth API request using OkHttp and Signpost:
     public static void findEntertainmentNews(String articles, Callback callback) {
 
+        // Here we are creating OKHttpClient to create and send request
         OkHttpClient client = new OkHttpClient.Builder().build();
 
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.ENTERTAINMENT_BASE_URL).newBuilder();
+        //Building a new URL with OkHttp
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.ENTERTAINMENT_BASE_URL).newBuilder();//Creates a new URL
         urlBuilder.addQueryParameter(Constants.QUERY_APIKEY_HOLDER, Constants.ApiKey);
 
+        //Turns the finished URL into a string
         String url = urlBuilder.build().toString();
 
+        //Creates a new request with OkHttp using the new url
         Request request = new Request.Builder()
                 .url(url)
                 .build();
 
+        //We create a Call object and place the request in it
         Call call = client.newCall(request);
-        call.enqueue(callback);
+        call.enqueue(callback);// Then we excute the request
     }
 
+    //This method returns an array of Entertainment news
     public ArrayList<News> processResults(Response response) {
         ArrayList<News> newses = new ArrayList<>();
 

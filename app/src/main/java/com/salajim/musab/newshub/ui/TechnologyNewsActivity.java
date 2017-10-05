@@ -40,23 +40,28 @@ public class TechnologyNewsActivity extends AppCompatActivity {
         getTechNews(news);
     }
 
+    //This method retrieves the data from the news api and displays it
     public void getTechNews(String newses) {
         final TechNewsService techNewsService = new TechNewsService();
         TechNewsService.findTechNews(newses, new Callback() {
 
+            //This method runs if the request fails
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
 
+            //This method runs if the request is successful
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 mNewses = techNewsService.processResults(response);
 
+                //We are switching to the main thread
                 TechnologyNewsActivity.this.runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
+                        //We set the adapter and the LayoutManager
                         mAdapter = new NewsListAdapter(getApplicationContext(), mNewses);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TechnologyNewsActivity.this);

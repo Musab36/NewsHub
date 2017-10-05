@@ -73,6 +73,7 @@ public class NewsDetailFragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         if(v == mReadMoreTextView) {
+            //Implicit Intent
             Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mNews.getUrl()));
             startActivity(webIntent);
         }

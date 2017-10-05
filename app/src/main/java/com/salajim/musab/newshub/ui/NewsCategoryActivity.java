@@ -28,6 +28,7 @@ public class NewsCategoryActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_news_category);
         ButterKnife.bind(this);
 
+        //We attach click listeners to the buttons
         mLatestNewsBtn.setOnClickListener(this);
         mGeneralNewsBtn.setOnClickListener(this);
         mTechNews.setOnClickListener(this);
@@ -57,6 +58,7 @@ public class NewsCategoryActivity extends AppCompatActivity implements View.OnCl
         animator.start();
     }
 
+    //Intents
     @Override
     public void onClick(View v) {
         if(v == mLatestNewsBtn) {

@@ -40,23 +40,28 @@ public class BusinessNewsActivity extends AppCompatActivity {
         getBusinessNews(news);
     }
 
+    //This method retrieves the data from the news API
     public void getBusinessNews(String newses) {
         final BusinessService businessService = new BusinessService();
         businessService.findBusinessNews(newses, new Callback() {
 
+            //This method runs if the request fails
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
 
+            //This method runs if the request is succesful
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 mNewses = businessService.processResults(response);
 
+                //We changing to the main thread with Runnable() method
                 BusinessNewsActivity.this.runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
+                        //We set the adapter and the LayoutManager
                         mAdapter = new NewsListAdapter(getApplicationContext(), mNewses);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(BusinessNewsActivity.this);
