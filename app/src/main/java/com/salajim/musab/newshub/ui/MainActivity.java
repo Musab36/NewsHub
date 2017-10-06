@@ -2,9 +2,11 @@ package com.salajim.musab.newshub.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -36,7 +38,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        getNews("news");
+        Intent intent = getIntent();
+        String news = intent.getStringExtra("news");
+
+        getNews(news);
 
 
     }
@@ -47,8 +52,25 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
         inflater.inflate(R.menu.menu_share, menu);
+        inflater.inflate(R.menu.menu_search, menu);
 
-        return super.onCreateOptionsMenu(menu);
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                getNews(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+        return true;
     }
 
     // Menu actions Listeners
