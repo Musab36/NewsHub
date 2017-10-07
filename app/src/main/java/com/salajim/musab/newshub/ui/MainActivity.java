@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                getNews(query);
+            public boolean onQueryTextSubmit(String source) {
+                getNews(source);
                 return false;
             }
 
