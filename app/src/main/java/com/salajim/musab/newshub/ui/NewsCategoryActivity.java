@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
 
 public class NewsCategoryActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.latestNewsBtn) Button mLatestNewsBtn;
-    @Bind(R.id.generalNewsBtn) Button mGeneralNewsBtn;
+    @Bind(R.id.scienceNewsBtn) Button mScienceNewsBtn;
     @Bind(R.id.techNewsBtn) Button mTechNews;
     @Bind(R.id.businessNewsBtn) Button mBusinessNewsBtn;
     @Bind(R.id.entertainmentNewsBtn) Button mEnterTainmentNewsBtn;
@@ -30,7 +30,7 @@ public class NewsCategoryActivity extends AppCompatActivity implements View.OnCl
 
         //We attach click listeners to the buttons
         mLatestNewsBtn.setOnClickListener(this);
-        mGeneralNewsBtn.setOnClickListener(this);
+        mScienceNewsBtn.setOnClickListener(this);
         mTechNews.setOnClickListener(this);
         mBusinessNewsBtn.setOnClickListener(this);
         mEnterTainmentNewsBtn.setOnClickListener(this);
@@ -65,8 +65,8 @@ public class NewsCategoryActivity extends AppCompatActivity implements View.OnCl
             Intent intent = new Intent(NewsCategoryActivity.this, MainActivity.class);
             startActivity(intent);
         }
-        if(v == mGeneralNewsBtn) {
-            Intent intent = new Intent(NewsCategoryActivity.this, GeneralNewsActivity.class);
+        if(v == mScienceNewsBtn) {
+            Intent intent = new Intent(NewsCategoryActivity.this, ScienceNewsActivity.class);
             startActivity(intent);
         }
         if(v == mTechNews) {

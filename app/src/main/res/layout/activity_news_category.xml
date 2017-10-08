@@ -38,8 +38,8 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:id="@+id/generalNewsBtn"
-        android:text="General"
+        android:id="@+id/businessNewsBtn"
+        android:text="Business"
         android:background="@drawable/falcos"
         android:scaleType="centerCrop"
         android:textColor="@android:color/white"
@@ -53,12 +53,12 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:layout_below="@+id/generalNewsBtn"
-        android:layout_alignLeft="@+id/generalNewsBtn"
-        android:layout_alignStart="@+id/generalNewsBtn"
+        android:layout_below="@+id/businessNewsBtn"
+        android:layout_alignLeft="@+id/businessNewsBtn"
+        android:layout_alignStart="@+id/businessNewsBtn"
         android:layout_marginTop="14dp"
-        android:id="@+id/techNewsBtn"
-        android:text="Technology"
+        android:id="@+id/entertainmentNewsBtn"
+        android:text="Entertainment"
         android:background="@drawable/falcos"
         android:scaleType="centerCrop"
         android:textColor="@android:color/white"
@@ -68,32 +68,32 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:layout_below="@+id/techNewsBtn"
-        android:layout_alignLeft="@+id/techNewsBtn"
-        android:layout_alignStart="@+id/techNewsBtn"
+        android:layout_below="@+id/entertainmentNewsBtn"
+        android:layout_alignLeft="@+id/entertainmentNewsBtn"
+        android:layout_alignStart="@+id/entertainmentNewsBtn"
         android:layout_marginTop="16dp"
-        android:text="Business"
+        android:text="Technology"
         android:background="@drawable/falcos"
         android:scaleType="centerCrop"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:id="@+id/businessNewsBtn"/>
+        android:id="@+id/techNewsBtn"/>
 
     <Button
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:id="@+id/entertainmentNewsBtn"
+        android:id="@+id/scienceNewsBtn"
         android:background="@drawable/falcos"
         android:scaleType="centerCrop"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:text="Entertainment"
+        android:text="Science"
         android:layout_marginTop="14dp"
-        android:layout_below="@+id/businessNewsBtn"
-        android:layout_alignLeft="@+id/businessNewsBtn"
-        android:layout_alignStart="@+id/businessNewsBtn" />
+        android:layout_below="@+id/techNewsBtn"
+        android:layout_alignLeft="@+id/techNewsBtn"
+        android:layout_alignStart="@+id/techNewsBtn" />
 
     <Button
         android:layout_width="200dp"
@@ -106,8 +106,8 @@
         android:textStyle="bold"
         android:textSize="17sp"
         android:layout_marginTop="12dp"
-        android:layout_below="@+id/entertainmentNewsBtn"
-        android:layout_alignLeft="@+id/entertainmentNewsBtn"
-        android:layout_alignStart="@+id/entertainmentNewsBtn" />
+        android:layout_below="@+id/scienceNewsBtn"
+        android:layout_alignLeft="@+id/scienceNewsBtn"
+        android:layout_alignStart="@+id/scienceNewsBtn" />
 
 </RelativeLayout>
