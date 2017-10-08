@@ -28,6 +28,7 @@ public class NewsService {
         //Building a url
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.BASE_URL).newBuilder();
         urlBuilder.addQueryParameter(Constants.QUERY_PARAMETER, articles);
+        urlBuilder.addQueryParameter(Constants.QUERY_SORTBY, articles);
         urlBuilder.addQueryParameter(Constants.QUERY_APIKEY_HOLDER, Constants.ApiKey);
 
         //Turns the finished url into a string

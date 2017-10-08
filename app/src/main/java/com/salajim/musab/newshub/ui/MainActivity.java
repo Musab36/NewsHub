@@ -1,7 +1,9 @@
 package com.salajim.musab.newshub.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.salajim.musab.newshub.Constants;
 import com.salajim.musab.newshub.R;
 import com.salajim.musab.newshub.adapters.NewsListAdapter;
 import com.salajim.musab.newshub.models.News;
@@ -30,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private NewsListAdapter mAdapter;
 
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+    private String mRecentNews;
+
     public ArrayList<News> mNewses = new ArrayList<>();
 
     @Override
@@ -43,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
 
         getNews(news);
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentNews = mSharedPreferences.getString(Constants.PREFERENCES_NEWS_KEY, null);
+
+        if(mRecentNews != null) {
+            getNews(mRecentNews);
+        }
 
     }
 
@@ -53,13 +66,17 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_main, menu);
         inflater.inflate(R.menu.menu_share, menu);
         inflater.inflate(R.menu.menu_search, menu);
+        ButterKnife.bind(this);
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
         MenuItem menuItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
             @Override
             public boolean onQueryTextSubmit(String source) {
+                addToSharedPreferences(source);
                 getNews(source);
                 return false;
             }
@@ -135,5 +152,9 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    private void addToSharedPreferences(String news) {
+        mEditor.putString(Constants.PREFERENCES_NEWS_KEY, news).apply();
     }
 }
