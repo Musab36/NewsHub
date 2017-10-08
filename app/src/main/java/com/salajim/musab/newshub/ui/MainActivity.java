@@ -122,6 +122,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, NationalGeographicActivity.class);
             startActivity(intent);
         }
+        if(id == R.id.scienceNews) {
+            Intent intent = new Intent(MainActivity.this, ScienceNewsActivity.class);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
 

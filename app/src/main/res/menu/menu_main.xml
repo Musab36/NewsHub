@@ -21,4 +21,8 @@
         android:id="@+id/nationalGeographicNews"
         android:title="National Geographic News"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/scienceNews"
+        android:title="Science News"
+        app:showAsAction="never"/>
 </menu>
